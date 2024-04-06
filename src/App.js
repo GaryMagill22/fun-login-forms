@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import LoginForm from './Components/Login/LoginForm.js';
+import Piano from './Components/Piano/Piano.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Home from './Pages/Home/Home.js';
+import Register from './Pages/Register/Register.js';
+// Import other pages you have created
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/piano/create" element={<Piano mode="create"/>} />
+        <Route path="/register" element={<Register/>} /> 
+      </Routes>
+    </Router>
   );
 }
 
